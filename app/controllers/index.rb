@@ -1,5 +1,5 @@
 get '/' do
-  erb :index
+  erb :index, layout: :'home_layout'
 end
 
 

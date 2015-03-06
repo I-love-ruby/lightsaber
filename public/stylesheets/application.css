@@ -1,0 +1,14 @@
+input[type='submit'] {
+  border-radius: 5px;
+  border: 1px black solid;
+  background: white;
+}
+
+input[type='submit']:active {
+  background: grey;
+}
+.assasin-bg{
+background: url("/images/assasin.png");
+  background-size: cover;
+
+}
