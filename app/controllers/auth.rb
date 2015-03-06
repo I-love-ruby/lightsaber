@@ -1,22 +1,32 @@
 get '/login' do
-  erb :'auth/login'
+ erb :'auth/login'
 end
 
-
 post '/login' do
-  erb :'auth/login_form'
+  user = User.find_by(name:params[:user][:name])
+  if user.try(:authenticate, params[:user][:password])
+    session[:user_id] = user.id
+    redirect "/users/#{user.id}"
+  else
+    redirect '/login'
+  end
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end
 
 get '/signup' do
   erb :'auth/signup'
 end
 
-
 post '/signup' do
-  erb :'auth/signup_form'
-end
-
-get '/logout' do
-session.clear
-redirect '/'
+  @user = User.create(params[:user])
+  if @user
+    session[:user_id] = @user.id
+    redirect "/users/#{@user.id}"
+  else
+    redirect '/'
+  end
 end
