@@ -1,41 +1,22 @@
-// // Javascript Goes Here~
-// //
-// $(document).ready(funtion(){
 
-//   $('#login_button').on("click",function(event){
-//     event.preventDefault();
-//     $.ajax({
-//       type:'get',
-//       url:'/login'
-//     }).success(function(resonse){
-//       $("#login_button").hide();
-//     });
-//   });
+var calculator = {
+  add: function (x,y){
+    return x + y;
+  },
 
-// $('#signup_button').on("click",function(event){
-//   $event.preventDefault();
-//   var target = $(this);
-//   var url =target.attr('href');
-//       if ($('nav #signup-form').length === 0) {
-//       $.ajax({
-//         type: 'get',
-//         url: url,
-//         success: function (response) {
-//           target.after(response);
-//         }
-//       });
-//     } else {
-//       $('#signup-form').remove();
-//     }
-//   });
-//  });
+  subtract: function(x,y) {
+    return x - y;
+  },
 
-// });
-
-
-var object = {
-  name: 'dongchul',
-  region: 'New York'
+  multiply: function(x,y) {
+    return x * y;
+  },
+  divide: function(x,y) {
+    if (y===0) {
+      return "Should not be zero."
+    }
+    else {
+      return x / y;
+    }
+  }
 };
-var copy =JSON.parse(JSON.stringify(object));
-alert
